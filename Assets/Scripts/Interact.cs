@@ -75,7 +75,7 @@ public class Interact : MonoBehaviour
             interactText.SetActive(false); 
         } 
 
-        if (Input.GetKeyDown(KeyCode.Dollar))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             playerInteractBehavior.GivePortalGun();
         }  

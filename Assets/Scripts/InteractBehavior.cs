@@ -65,8 +65,6 @@ public class InteractBehavior : MonoBehaviour
 
     public bool isBusy = false;
 
-    public List<String> konamiCode = new List<String>();
-
     //Fonction de ramassage d'un item
     public void DoPickup(Item item)
     {
@@ -195,7 +193,8 @@ public class InteractBehavior : MonoBehaviour
     {
         boat.ShowRepairMaterialPanel();
         boat.checkKeyItem();
-        boat.HideRepairMaterialPanel();
+        //attendre 5 seconde puis cacher le panneau
+        StartCoroutine(HideBoatPanelAfterDelay(5f));
 
     }
 
@@ -213,6 +212,9 @@ public class InteractBehavior : MonoBehaviour
             if (UnityEngine.Random.Range(0, 101) < loot.dropChance)
             {
                 GameObject droppedItem = Instantiate(loot.itemdata.prefab);
+                //ajouter le tag et le layer "Item" pour permettre le ramassage
+                droppedItem.tag = "Item";
+                droppedItem.layer = LayerMask.NameToLayer("Item");
                 droppedItem.transform.position = currentChest.transform.position + newItemOffset;
             }
 
@@ -226,5 +228,11 @@ public class InteractBehavior : MonoBehaviour
     {
         portalGunVisual.SetActive(true);
         equipmentManager.EquipItemActionButton(portalGunItem);
+    }
+
+    IEnumerator HideBoatPanelAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        boat.HideRepairMaterialPanel();
     }
 }
