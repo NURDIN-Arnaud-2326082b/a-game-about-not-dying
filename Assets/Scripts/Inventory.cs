@@ -1,12 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Numerics;
-using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
-using UnityEngine.UI;
 using System.Linq;
-using UnityEditor;
-using Unity.VisualScripting.ReorderableList;
 
 public class Inventory : MonoBehaviour
 {

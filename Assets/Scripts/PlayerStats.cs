@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Pool;
 using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour

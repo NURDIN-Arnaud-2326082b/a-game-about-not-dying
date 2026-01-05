@@ -101,7 +101,7 @@ public class MainMenu : MonoBehaviour
         {
             System.IO.File.Delete(Application.persistentDataPath + "/savefile.json");
         }
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("IntroScene");
     }
 
     public void QuitGameButton()
