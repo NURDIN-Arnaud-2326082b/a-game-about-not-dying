@@ -152,8 +152,11 @@ public class EnemyAI : MonoBehaviour
         {
             isDead = true;
             animator.SetTrigger("Die");
+            // on me le volume à 0 pour qu'il n'y ait plus de son
+            audioSource.volume = 0;
             agent.enabled = false;
             this.enabled = false;
+            Destroy(this.gameObject, 5f);
         }
         else
         {
